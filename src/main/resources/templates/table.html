@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Table</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Tournament Table</h1>
+<div id="tableContainer">
+    <table class="table_blur">
+        <tr>
+            <th>Команды</th>
+            <th th:each="team : ${tournamentTable.keySet()}" th:text="${team}"></th>
+        </tr>
+        <tr th:each="entry : ${tournamentTable.keySet()}">
+            <td th:text="${entry}"></td>
+            <td th:each="points : ${tournamentTable.get(entry).values()}" th:text="${points}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
